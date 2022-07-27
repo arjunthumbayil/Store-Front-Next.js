@@ -36,7 +36,7 @@ export default function ProductItem({ product }) {
           </a>
         </Link>
         <p className="mb-2">{product.type}</p>
-        <p>${product.price}</p>
+        <p>₹{product.price}</p>
         <button className="primary-button" type="button" onClick={addToCartHandler}>
           Add to cart
         </button>
