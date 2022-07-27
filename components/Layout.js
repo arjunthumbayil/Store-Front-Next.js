@@ -19,10 +19,11 @@ export default function Layout({ title, children }) {
         <meta name="description" content="Ecommerce Website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <div className="flex w-auto flex-col justify-between">
+      {/* {"flex w-auto flex-col justify-between"} */}
+      {/* {"flex h-12 w-auto items-center px-4 justify-between shadow-md"} */}
+      <div className="flex min-h-screen flex-col justify-between">
         <header>
-          <nav className="flex h-12 w-auto items-center px-4 justify-between shadow-md">
+          <nav className="flex h-12 items-center px-4 justify-between shadow-md">
             <Link href="/">
               <a className="text-lg font-bold">kreate.</a>
             </Link>
