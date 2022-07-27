@@ -1,11 +1,12 @@
-import React from "react";
+import Link from 'next/link'
+import React from 'react'
 
 const shipping = () => {
   return (
-    <div className="ml-10 mt-20 flex justify-center items-center ">
-      To be developed in Version 2. Kindly traverse back. Thanks.
-    </div>
-  );
-};
+    <Link href="/">
+    <div className='default-button'>To be developed in Version 2. Kindly traverse back. Thanks.</div>
+    </Link>
+  )
+}
 
-export default shipping;
+export default shipping
