@@ -15,7 +15,7 @@ export default function Home() {
     .slice(pagesVisited, pagesVisited + itemsPerPage)
     .map((product) => {
       return (
-        <div >
+        <div key={product.id} >
           <ProductItem key={product.id} product={product} ></ProductItem>
         </div>
       );
