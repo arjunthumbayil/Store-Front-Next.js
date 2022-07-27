@@ -5,7 +5,7 @@ import ProductItem from "../components/ProductItem";
 import data from "../utils/data";
 
 export default function Home() {
-  const [items, setitems] = useState(data.slice(0));
+  const [items] = useState(data.slice(0));
   const [pageNumber, setPageNumber] = useState(0);
 
   const itemsPerPage = 8;
@@ -16,7 +16,7 @@ export default function Home() {
     .map((product) => {
       return (
         <div >
-          <ProductItem product={product} key={product.id}></ProductItem>
+          <ProductItem key={product.id} product={product} ></ProductItem>
         </div>
       );
     });
