@@ -33,7 +33,7 @@ export default function Home() {
         {displayItems}
       </div>
       <ReactPaginate
-        className={"flex justify-center space-x-20 pt-6 sticky "}
+        className={"flex justify-center space-x-20 pt-6 sticky sm:space-x-2"}
         previousLabel={"Previous"}
         nextLabel={"Next"}
         pageCount={pageCount}

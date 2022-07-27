@@ -20,7 +20,7 @@ export default function Layout({ title, children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex min-h-screen flex-col justify-between ">
+      <div className="flex max-w-7xl mx-auto flex-col justify-between">
         <header>
           <nav className="flex h-12 items-center px-4 justify-between shadow-md">
             <Link href="/">
@@ -31,7 +31,7 @@ export default function Layout({ title, children }) {
                 <a className="p-2">
                   Cart
                   {cartItemsCount > 0 && (
-                    <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
+                    <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white sm:ml-auto" >
                       {cartItemsCount}
                     </span>
                   )}
