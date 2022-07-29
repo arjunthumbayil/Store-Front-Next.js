@@ -1,11 +1,19 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
-import data from "../../utils/data";
-import React, { useContext } from "react";
+import { newdata } from "../../utils/newdata";
+import React, { useContext, useEffect, useState } from "react";
 import { Store } from "../../utils/Store";
 
 export default function ProductScreen() {
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    newdata().then((response) => setData(response));
+  }, []);
+
+
   const { state, dispatch } = useContext(Store);
   const router = useRouter();
   const { query } = useRouter();

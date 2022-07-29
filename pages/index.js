@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import Layout from "../components/Layout";
 import ProductItem from "../components/ProductItem";
-import data from "../utils/data";
+import { newdata } from "../utils/newdata";
 
 export default function Home() {
-  const [items] = useState(data.slice(0));
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    newdata().then((response) => setItems(response));
+  }, []);
+
   const [pageNumber, setPageNumber] = useState(0);
 
   const itemsPerPage = 8;
@@ -15,8 +20,8 @@ export default function Home() {
     .slice(pagesVisited, pagesVisited + itemsPerPage)
     .map((product) => {
       return (
-        <div key={product.id} >
-          <ProductItem key={product.id} product={product} ></ProductItem>
+        <div key={product.id}>
+          <ProductItem key={product.id} product={product}></ProductItem>
         </div>
       );
     });
@@ -33,14 +38,17 @@ export default function Home() {
         {displayItems}
       </div>
       <ReactPaginate
-        className={"flex justify-center space-x-30 p-6 sticky sm:space-x-10 sm:p-10"}
+        className={
+          "flex justify-center space-x-30 p-6 sticky sm:space-x-10 sm:p-10"
+        }
         pageCount={pageCount}
         onPageChange={changePage}
-        previousLinkClassName={"rounded bg-blue-500 py-2 px-4 shadow outline-none "}
-        pageLinkClassName	={"rounded bg-blue-500 py-2 px-4 shadow outline-none "}
+        previousLinkClassName={
+          "rounded bg-blue-500 py-2 px-4 shadow outline-none "
+        }
+        pageLinkClassName={"rounded bg-blue-500 py-2 px-4 shadow outline-none "}
         nextLinkClassName={"rounded bg-blue-500 py-2 px-4 shadow outline-none "}
         activeLinkClassName={"bg-blue-200"}
-        
       />
     </Layout>
   );
