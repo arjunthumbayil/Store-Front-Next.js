@@ -24,15 +24,15 @@ export default function Home() {
 
   const pageCount = Math.ceil(items.length / itemsPerPage);
 
-  const changePage = ({ selected }) => {
-    setPageNumber(selected);
+  const changePage = (event) => {
+    setPageNumber(event.selected);
   };
 
   return (
     <Layout>
       <div className="grid grid-cols-1 gap-1 md:grid-cols-3 lg:grid-cols-4   ">
         {displayItems}
-      </div>
+      </div>  
       <ReactPaginate
         className={
           "flex justify-center space-x-30 p-6 sticky sm:space-x-10 sm:p-10"
