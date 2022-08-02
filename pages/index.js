@@ -14,10 +14,10 @@ export default function Home() {
   const [pageNumber, setPageNumber] = useState(0);
 
   const itemsPerPage = 8;
-  const itemsVisited = pageNumber * itemsPerPage;
+  const itemsFullyViewed = pageNumber * itemsPerPage;
 
   const displayItems = items
-    .slice(itemsVisited, itemsVisited + itemsPerPage)
+    .slice(itemsFullyViewed, itemsFullyViewed + itemsPerPage)
     .map((product) => {
       return (
         <div key={product.id}>
