@@ -35,7 +35,7 @@ export default function Home() {
       </div>  
       <ReactPaginate
         className={
-          "flex justify-center space-x-30 p-6 sticky sm:space-x-10 sm:p-10"
+          "flex justify-center space-x-2 p-6 sticky md:space-x-5"
         }
         pageCount={pageCount}
         onPageChange={changePage}
