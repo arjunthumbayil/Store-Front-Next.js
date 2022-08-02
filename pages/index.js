@@ -19,11 +19,7 @@ export default function Home() {
   const displayItems = items
     .slice(itemsFullyViewed, itemsFullyViewed + itemsPerPage)
     .map((product) => {
-      return (
-        <div key={product.id}>
-          <ProductItem key={product.id} product={product}></ProductItem>
-        </div>
-      );
+      return <ProductItem key={product.id} product={product}></ProductItem>;
     });
 
   const pageCount = Math.ceil(items.length / itemsPerPage);
