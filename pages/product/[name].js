@@ -6,13 +6,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { Store } from "../../utils/Store";
 
 export default function ProductScreen() {
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
     newdata().then((response) => setData(response));
   }, []);
-
 
   const { state, dispatch } = useContext(Store);
   const router = useRouter();
@@ -32,12 +30,14 @@ export default function ProductScreen() {
     }
 
     dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
-    router.push('/cart');
+    router.push("/cart");
   };
   return (
     <Layout title={product.name}>
       <div className="py-2">
-        <Link href="/">back to products</Link>
+        <Link legacyBehavior href="/">
+          back to products
+        </Link>
       </div>
       <div className="grid md:grid-cols-4 md:gap-3">
         <div className="md:col-span-2">

@@ -20,7 +20,7 @@ export default function ProductItem({ product }) {
 
   return (
     <div className="card">
-      <Link href={`/product/${product.name}`}>
+      <Link legacyBehavior href={`/product/${product.name}`}>
         <a>
           <img
             src={product.imageURL}
@@ -30,7 +30,7 @@ export default function ProductItem({ product }) {
         </a>
       </Link>
       <div className="flex flex-col items-center justify-center p-5 ">
-        <Link href={`/product/${product.name}`}>
+        <Link legacyBehavior href={`/product/${product.name}`}>
           <a>
             <h2 className="text-lg">{product.name}</h2>
           </a>

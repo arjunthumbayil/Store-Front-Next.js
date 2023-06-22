@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import React, { useContext } from 'react';
-import { XCircleIcon } from '@heroicons/react/outline';
-import Layout from '../components/Layout';
-import { Store } from '../utils/Store';
-import { useRouter } from 'next/router';
-import dynamic from 'next/dynamic';
+import Link from "next/link";
+import React, { useContext } from "react";
+import { XCircleIcon } from "@heroicons/react/outline";
+import Layout from "../components/Layout";
+import { Store } from "../utils/Store";
+import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 
 function CartScreen() {
   const router = useRouter();
@@ -13,18 +13,21 @@ function CartScreen() {
     cart: { cartItems },
   } = state;
   const removeItemHandler = (item) => {
-    dispatch({ type: 'CART_REMOVE_ITEM', payload: item });
+    dispatch({ type: "CART_REMOVE_ITEM", payload: item });
   };
   const updateCartHandler = (item, qty) => {
     const quantity = Number(qty);
-    dispatch({ type: 'CART_ADD_ITEM', payload: { ...item, quantity } });
+    dispatch({ type: "CART_ADD_ITEM", payload: { ...item, quantity } });
   };
   return (
     <Layout title="Shopping Cart">
       <h1 className="mb-4 text-xl">Shopping Cart</h1>
       {cartItems.length === 0 ? (
         <div>
-          Cart is empty. <Link href="/">Go shopping</Link>
+          Cart is empty.{" "}
+          <Link legacyBehavior href="/">
+            Go shopping
+          </Link>
         </div>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-5">
@@ -42,7 +45,7 @@ function CartScreen() {
                 {cartItems.map((item) => (
                   <tr key={item.name} className="border-b">
                     <td>
-                      <Link href={`/product/${item.name}`}>
+                      <Link legacyBehavior href={`/product/${item.name}`}>
                         <a className="flex items-center">
                           <img
                             src={item.imageURL}
@@ -62,7 +65,7 @@ function CartScreen() {
                           updateCartHandler(item, e.target.value)
                         }
                       >
-                        {[...Array(item.id+5).keys()].map((x) => (
+                        {[...Array(item.id + 5).keys()].map((x) => (
                           <option key={x + 1} value={x + 1}>
                             {x + 1}
                           </option>
@@ -84,13 +87,13 @@ function CartScreen() {
             <ul>
               <li>
                 <div className="pb-3 text-xl">
-                  Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}) {' '}: ₹
+                  Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}) : ₹
                   {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)}
                 </div>
               </li>
               <li>
                 <button
-                  onClick={() => router.push('/shipping')}
+                  onClick={() => router.push("/shipping")}
                   className="primary-button w-full"
                 >
                   Check Out

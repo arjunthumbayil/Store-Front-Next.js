@@ -17,28 +17,28 @@ export default function Layout({ title, children }) {
       <Head>
         <title>{title ? title + " - Kreate." : "Kreate."}</title>
         <meta name="description" content="Ecommerce Website" />
-        <link rel="icon" href="/favicon.ico" />
+        <Link rel="icon" href="/favicon.ico" />
       </Head>
       {/* {"flex w-auto flex-col justify-between"} */}
       {/* {"flex h-12 w-auto items-center px-4 justify-between shadow-md"} */}
       <div className="flex min-h-screen flex-col justify-between">
         <header>
           <nav className="flex h-12 items-center px-4 justify-between shadow-md">
-            <Link href="/">
+            <Link legacyBehavior href="/">
               <a className="text-lg font-bold">kreate.</a>
             </Link>
             <div>
-              <Link href="/cart">
+              <Link legacyBehavior href="/cart">
                 <a className="p-2">
                   Cart
                   {cartItemsCount > 0 && (
-                    <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white sm:ml-auto" >
+                    <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white sm:ml-auto">
                       {cartItemsCount}
                     </span>
                   )}
                 </a>
               </Link>
-              <Link href="/login">
+              <Link legacyBehavior href="/login">
                 <a className="p-2">Login</a>
               </Link>
             </div>
